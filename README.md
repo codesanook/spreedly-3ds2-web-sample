@@ -1,16 +1,16 @@
 # Spreedly 3DS2 Web Sample
 
-This application is intended to demonstrait how to integrate Spreedly 3DS 2 based flows. To use it you'll need to make sure that you have a Spreedly environment setup along with a Spreedly test gateway setup. There are two parts to this application - a frontend application and a backend application. The frontend application is where most of the integration work happens. There are a couple of fields that you'll need to expose from your backend to your frontend to complete the process throughout the transaction process. You can find more information on the [3DS 2 Web based guide](https://docs.spreedly.com/guides/3dsecure2/).
+This application is intended to demonstrate how to integrate Spreedly 3DS 2 based flows. To use it, you'll need to make sure that you have a Spreedly environment setup along with a Spreedly test gateway (see [Getting Started](https://docs.spreedly.com/basics/credentials/) for more info). There are two parts to this application - a frontend application and a backend application. The frontend application is where most of the integration work happens. There are a couple of fields that you'll need to expose from your backend to your frontend to complete the process throughout the transaction process. You can find more information on the [3DS 2 Web based guide](https://docs.spreedly.com/guides/3dsecure2/).
 
 ## Getting started
 
 ### Backend
 
-The backend application is written in ruby on rails. You'll need to have ruby installed and you'll need to run `bundle install` in the `backend/` folder. You'll also need to copy the `.env.example` file to `.env` and change environment variables to match your environment key and secret along with the test gateway token. Spreedly also needs to be able to reach the backend project (rails application) from the public internet. To do that there is a `BACKEND_HOST` environment variable in the `.env` file that you'll need to set to do so. *note* A good tool for exposing development environments via a tunnel is https://ngrok.com/.
+The backend application is written in Ruby on Rails. You'll need to have Ruby installed and you'll need to run `bundle install` in the `backend/` folder. You'll also need to copy the `.env.example` file to `.env` and change environment variables to match your environment key and secret along with the test gateway token. Spreedly also needs to be able to reach the backend project (Rails application) from the public internet. To do that there is a `BACKEND_HOST` environment variable in the `.env` file that you'll need to set to do so. *note* A good tool for exposing development environments via a tunnel is https://ngrok.com/.
 
 #### Backend Quickstart Checklist
 
-- [ ] have ruby installed
+- [ ] have Ruby installed
 - [ ] bundle install in `backend`
 - [ ] create a tunnel using ngrok (or something like it)
 - [ ] copy `.env.example` to `.env` 
@@ -19,7 +19,7 @@ The backend application is written in ruby on rails. You'll need to have ruby in
 
 ### Frontend
 
-The frontend application is written react to simulate a somewhat real world application. To run the application you'll need to have node and yarn installed on your machine. After they've been installed you'll simply run `yarn install` and then `yarn start`
+The frontend application is written in React to simulate a somewhat real world application. To run the application you'll need to have node and yarn installed on your machine. After they've been installed you'll simply run `yarn install` and then `yarn start`
 
 #### Frontend Quickstart Checklist
 
