@@ -10,7 +10,25 @@ const spreedlyStatusUpdates = (event, transaction, setTransaction) => {
   console.dir(event);
 
   if (event.action === 'trigger-completion') {
+    // When making the authenticated Spreedly completion call for the transaction
+    // the data flows as follows:
+    //
+    // Request
+    // app frontend => app backend => Spreedly authenticated complete.
+    // 
+    // Response 
+    // Spreedly authenticated complete => app backend => app frontend.
+    //
+    // You'll need to make sure that you update your application state accordingly.
+    // an example of the completion call to this backend => Spreedly can be found here:
+    // backend/app/controllers/transactions_controller.rb in the complete method.
+    //
+    // The frontend data in this application gets updated with setTransaction to reduce logic.
+    // in your application, you'll need to handle errors and succeeded transaction states as well
+    // as the challenge required_action from the completion response.
     BackendInteractions.makeCompletion(event.context.token, setTransaction, (data) => {
+      console.log("completion", data)
+
       if (data.state === 'pending' && data.required_action === 'challenge') {
         document.getElementById('challenge-iframe-window').classList.remove('hidden');
         event.finalize(data);
